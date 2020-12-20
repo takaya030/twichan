@@ -16,3 +16,14 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+// Test Session
+$router->get('/test', function (\Illuminate\Http\Request $request) {
+
+    $counter = $request->session()->get('counter') ?: 0;
+    $request->session()->put('counter', ++$counter);
+
+    return response()->json([
+        'session.counter' => $request->session()->get('counter')
+    ]);
+});

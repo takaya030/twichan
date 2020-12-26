@@ -27,3 +27,6 @@ $router->get('/test', function (\Illuminate\Http\Request $request) {
         'session.counter' => $request->session()->get('counter')
     ]);
 });
+
+// Test Timeline
+$router->get('/timeline',  'TwitterController@getTimeline' );

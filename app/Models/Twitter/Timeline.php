@@ -12,8 +12,10 @@ class Timeline extends OAuthClient
 	public function getTimeline()
 	{
 		$params = [
-			'count' => '3',
+			'count' => '10',
+			//'trim_user' => true,
 			'exclude_replies' => 'true',
+			'tweet_mode' => 'extended',
 		];
 
 		// Send a request with it

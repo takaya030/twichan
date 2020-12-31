@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use \Illuminate\Http\Request;
 
 use App\Models\Twitter\Timeline;
+use App\Models\Twitter\Tweet;
 
 class TwitterController extends Controller
 {
@@ -23,7 +24,17 @@ class TwitterController extends Controller
 	{
 		$model = new Timeline();
 		$result = $model->getTimeline();
+		//dd($result);
 
-		dd($result);
+		$tweets = [];
+		if( is_array($result) )
+		{
+			foreach( $result as $tw )
+			{
+				$tweets[] = new Tweet( $tw );
+			}
+		}
+
+		return view("timeline", ['tweets' => $tweets]);
 	}
 }

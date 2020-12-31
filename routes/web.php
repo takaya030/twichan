@@ -30,3 +30,8 @@ $router->get('/test', function (\Illuminate\Http\Request $request) {
 
 // Test Timeline
 $router->get('/timeline',  'TwitterController@getTimeline' );
+
+// Test Blade
+$router->get('/blade',  function (\Illuminate\Http\Request $request) {
+	return view("timeline");
+});

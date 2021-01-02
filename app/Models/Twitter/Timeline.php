@@ -12,7 +12,7 @@ class Timeline extends OAuthClient
 	public function getTimeline()
 	{
 		$params = [
-			'count' => '10',
+			'count' => '5',
 			//'trim_user' => true,
 			'exclude_replies' => 'true',
 			'tweet_mode' => 'extended',
